@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Chatbot</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    #message-container{
+      margin: 2% 0%;
+    }
+  </style>
+</head>
+<body>
+  <div id="message-container"></div>
+  <form id="form">
+    <input id="input" type="text">
+    <button type="submit">Send</button>
+  </form>
+  <script>
+    const socket = io();
+    messageContainer = document.getElementById("message-container")
+
+    //Form submit
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault()
+      const input = document.getElementById('input').value
+      socket.emit('input', input)
+      document.getElementById('input').value = ''
+    });
+
+    //Server response
+    socket.on('output', (data) => {
+      console.log('Server response:', data)
+      appendMessage(data)
+    });
+
+    //Append message to the webpage
+    function appendMessage(message){
+      const messageElement = document.createElement("div")
+      const messageNewLine = document.createElement("br")
+      messageElement.innerText = message
+      messageContainer.append(message, messageNewLine)
+    }
+  </script>
+</body>
+</html>
