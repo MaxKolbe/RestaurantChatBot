@@ -15,7 +15,7 @@ When a customer selects “97”, the bot returns the current order.
 When a customer selects “0”, the bot cancels the order if there is.
 
 ## DEPLOYMENT 
-You can find the live site at [](https://restaurantchatbot-production.up.railway.app/)
+You can find the live site [here](https://restaurantchatbot-production.up.railway.app/)
 
 ## INSTRUCTIONS 
 Visit the live site and place your order with the textbox and form submit button.
