@@ -4,6 +4,8 @@ const http = require('http')
 const server = http.createServer(app)
 const { Server } = require("socket.io")
 const io = new Server(server)
+require("dotenv").config()
+const PORT = 3000 || process.env.PORT
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html")
@@ -89,6 +91,6 @@ socket.on('input', (data) => {
   }) 
     })
     
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log('listening on *:3000')
 })
