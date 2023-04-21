@@ -18,6 +18,7 @@ When a customer selects “0”, the bot cancels the order if there is.
 You can find the live site [here](https://restaurantchatbot-production.up.railway.app/)
 
 ## INSTRUCTIONS 
+### Please carefully read the instructions
 Visit the live site and place your order with the textbox and form submit button.
 The options will be displayed on the webpage. 
 You can also open the webpage console to see server responses. You can do this by right-clicking anywhere on the page. Clicking on the inspect tab, then clicking on the console window. 
