@@ -12,9 +12,10 @@ app.get('/', (req, res) => {
 })
 
 var orders = {}
-
+var orderHistory = []
 //Chatbot options
 const options = [
+  ` Hello! welcome to the chatapp`,
   ' Select 1 to Place an order',
   ' Select 99 to checkout order',
   ' Select 98 to see order history',
@@ -43,14 +44,17 @@ socket.on('input', (data) => {
       // Checkout order
       if (Object.keys(orders).length) {
         socket.emit('output', 'Order placed')
-        orders = {};
+        const key = Object.keys(orders)[0]
+        const hist = orders[key][0]
+        orderHistory.push(hist)
+        orders = {}
       } else { 
         socket.emit('output', 'No order to place')
       }
       break;
     case '98':
       // Get order history
-      const history = Object.values(orders)
+      const history = Object.values(orderHistory)
       if (history.length) {
         socket.emit('output', history.toString().replaceAll(",", " , "))
       } else {
