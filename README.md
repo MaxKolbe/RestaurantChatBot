@@ -1,4 +1,4 @@
-# RESTURANT CHATBOT
+# RESTURANT CHATBOT (DEPRECATED)
 This a restaurant chatbot that is meant to assist customers in placing orders for their preferred meals
 
 ## FUNCTIONALITIES 
